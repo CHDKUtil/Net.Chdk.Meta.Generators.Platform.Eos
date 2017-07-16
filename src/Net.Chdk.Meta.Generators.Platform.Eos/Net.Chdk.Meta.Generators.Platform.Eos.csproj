@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <Description>CHIMP EOS platform generators</Description>
+    <RootNamespace>Net.Chdk.Meta.Generators.Platform.Eos</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Version>0.2.0</Version>
+    <Product>CHIMP</Product>
+    <Authors>Dmitry Shechtman</Authors>
+    <Copyright>Copyright © 2017 Dmitry Shechtman</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Net.Chdk.Meta.Generators.Platform.Eos</Title>
+    <PackageVersion>$(Version)-alpha</PackageVersion>
+    <PackageIconUrl>https://raw.githubusercontent.com/CHDKUtil/CHIMP/master/tiny.png</PackageIconUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/CHDKUtil/Net.Chdk.Meta.Generators.Platform.Eos/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/CHDKUtil/Net.Chdk.Meta.Generators.Platform.Eos</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/CHDKUtil/Net.Chdk.Meta.Generators.Platform.Eos</RepositoryUrl>
+    <PackageTags>chimp meta generator platform eos</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <TreatSpecificWarningsAsErrors />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <TreatSpecificWarningsAsErrors />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="microsoft.extensions.dependencyinjection.abstractions" Version="1.1.1" />
+    <PackageReference Include="Net.Chdk.Meta.Generators.Platform.Core" Version="0.2.0-alpha" />
+    <PackageReference Include="Net.Chdk.Meta.Generators.Platform.Base" Version="0.2.0-alpha" />
+  </ItemGroup>
+
+</Project>
