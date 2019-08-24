@@ -1,11 +1,14 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Net.Chdk.Meta.Generators.Platform.Eos.Tests
 {
     [TestClass]
     public class EosPlatformGeneratorTest
     {
+        private IPlatformGenerator platformGenerator;
+
         public EosPlatformGeneratorTest()
         {
             var serviceProvider = new ServiceCollection()
