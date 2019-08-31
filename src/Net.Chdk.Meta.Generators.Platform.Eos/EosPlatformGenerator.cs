@@ -9,7 +9,11 @@ namespace Net.Chdk.Meta.Generators.Platform.Eos
         public override string GetPlatform(string[] models)
         {
             if (models[0].Contains("Rebel"))
-                return base.GetPlatform(new[] { $"EOS {models[1]}" });
+            {
+                if (models.Length > 1)
+                    return base.GetPlatform(new[] { $"EOS {models[1]}" });
+                return null;
+            }
             return base.GetPlatform(models);
         }
 
