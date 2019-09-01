@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Net.Chdk.Meta.Generators.Platform.Eos
@@ -29,17 +28,9 @@ namespace Net.Chdk.Meta.Generators.Platform.Eos
             if (split[1].StartsWith("M"))
                 return null;
 
-            var index = Array.IndexOf(split, "Mark");
-            if (index > 0)
-            {
-                var m = RomanToInteger(split[index + 1]);
-                return split
-                    .Take(index)
-                    .Concat(new[]{ m.ToString() })
-                    .Skip(1);
-            }
+            split = AdaptMark(split);
 
-            if (split[1].Equals("5D"))
+            if (split[split.Length - 1].Equals("5D"))
                 return new[] { "5DC" };
 
             return split.Skip(1);
@@ -56,22 +47,5 @@ namespace Net.Chdk.Meta.Generators.Platform.Eos
         }
 
         protected override string Keyword => "EOS";
-
-        private static int RomanToInteger(string roman)
-        {
-            switch (roman)
-            {
-                case "I":
-                    return 1;
-                case "II":
-                    return 2;
-                case "III":
-                    return 3;
-                case "IV":
-                    return 4;
-                default:
-                    throw new InvalidOperationException();
-            }
-        }
     }
 }
