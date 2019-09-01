@@ -10,7 +10,12 @@ namespace Net.Chdk.Meta.Generators.Platform.Eos
             if (models[0].Contains("Rebel"))
             {
                 if (models.Length > 1)
-                    return base.GetPlatform(new[] { $"EOS {models[1]}" });
+                {
+                    var model = models[1];
+                    if (!model.StartsWith("EOS "))
+                        model = $"EOS {model}";
+                    return base.GetPlatform(new[] { model });
+                }
                 return null;
             }
             return base.GetPlatform(models);
